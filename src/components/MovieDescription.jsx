@@ -1,9 +1,10 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function MovieDescription({ movies }) {
   const params = useParams();
+  const navigate=useNavigate();
   console.log(params);
   const movie = movies.find((movie) => movie.id === params.id);
   console.log(movie);
@@ -41,10 +42,10 @@ function MovieDescription({ movies }) {
           allowfullscreen
         ></iframe>
 
-        <Button variant="danger">
-          <Link style={{ color: "white", textDecoration: "none" }} to="/">
+        <Button style={{ color: "white" }} variant="danger" onClick={() => navigate(-1)}>
+          
             Go Back
-          </Link>
+         
         </Button>
       </div>
     );
